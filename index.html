@@ -24,11 +24,49 @@
             padding: 0 20px;
         }
 
+        /* Header */
+        .header {
+            border-bottom: 1px solid #f0f0f0;
+            background-color: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-menu a {
+            color: #333333;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #000000;
+        }
 
         /* Hero Section */
         .hero {
-            padding: 120px 0 80px;
+            padding: 80px 0 80px;
             text-align: center;
             background: linear-gradient(180deg, #fafafa 0%, #ffffff 100%);
         }
@@ -199,8 +237,18 @@
                 padding: 0 16px;
             }
 
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+                padding: 16px 0;
+            }
+
+            .nav-menu {
+                gap: 20px;
+            }
+
             .hero {
-                padding: 80px 0 60px;
+                padding: 60px 0 80px;
             }
 
             .hero h1 {
@@ -259,7 +307,18 @@
     </style>
 </head>
 <body>
-
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">Portfolio</a>
+                <nav class="nav-menu">
+                    <a href="about/">소개</a>
+                    <a href="product/">작업물</a>
+                    <a href="contact/">연락처</a>
+                </nav>
+            </div>
+        </div>
+    </header>
 
     <section class="hero">
         <div class="container">
