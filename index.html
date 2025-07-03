@@ -24,49 +24,11 @@
             padding: 0 20px;
         }
 
-        /* Header */
-        .header {
-            border-bottom: 1px solid #f0f0f0;
-            background-color: #ffffff;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
 
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: #000000;
-            text-decoration: none;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 40px;
-        }
-
-        .nav-menu a {
-            color: #333333;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 16px;
-            transition: color 0.3s ease;
-        }
-
-        .nav-menu a:hover {
-            color: #000000;
-        }
 
         /* Hero Section */
         .hero {
-            padding: 80px 0 120px;
+            padding: 120px 0 80px;
             text-align: center;
             background: linear-gradient(180deg, #fafafa 0%, #ffffff 100%);
         }
@@ -165,7 +127,7 @@
 
         /* Navigation Cards */
         .nav-cards {
-            padding: 60px 0;
+            padding: 40px 0 80px;
             background-color: #fafafa;
         }
 
@@ -237,18 +199,8 @@
                 padding: 0 16px;
             }
 
-            .header-content {
-                flex-direction: column;
-                gap: 20px;
-                padding: 16px 0;
-            }
-
-            .nav-menu {
-                gap: 20px;
-            }
-
             .hero {
-                padding: 60px 0 80px;
+                padding: 80px 0 60px;
             }
 
             .hero h1 {
@@ -307,18 +259,7 @@
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <a href="#" class="logo">Portfolio</a>
-                <nav class="nav-menu">
-                    <a href="about/">소개</a>
-                    <a href="product/">작업물</a>
-                    <a href="contact/">연락처</a>
-                </nav>
-            </div>
-        </div>
-    </header>
+
 
     <section class="hero">
         <div class="container">
@@ -330,40 +271,7 @@
         </div>
     </section>
 
-    <section class="featured">
-        <div class="container">
-            <h2 class="section-title">주요 작업물</h2>
-            <div class="featured-grid">
-                <div class="featured-card fade-in">
-                    <div class="card-image">
-                        🎨
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">디자인 프로젝트</h3>
-                        <p class="card-description">창의적이고 혁신적인 디자인 솔루션을 제공합니다.</p>
-                    </div>
-                </div>
-                <div class="featured-card fade-in">
-                    <div class="card-image">
-                        💻
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">웹 개발</h3>
-                        <p class="card-description">사용자 친화적이고 반응형 웹사이트를 개발합니다.</p>
-                    </div>
-                </div>
-                <div class="featured-card fade-in">
-                    <div class="card-image">
-                        📱
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">모바일 앱</h3>
-                        <p class="card-description">직관적인 사용자 경험을 제공하는 모바일 앱을 제작합니다.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <section class="nav-cards">
         <div class="container">
@@ -417,7 +325,7 @@
         }, observerOptions);
 
         // Observe all elements that should fade in
-        document.querySelectorAll('.featured-card').forEach(card => {
+        document.querySelectorAll('.nav-card').forEach(card => {
             observer.observe(card);
         });
 
