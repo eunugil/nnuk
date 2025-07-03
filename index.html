@@ -1,11 +1,438 @@
-<html>
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-<title> hello </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개인 포트폴리오</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            border-bottom: 1px solid #f0f0f0;
+            background-color: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-menu a {
+            color: #333333;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #000000;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 120px;
+            text-align: center;
+            background: linear-gradient(180deg, #fafafa 0%, #ffffff 100%);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 300;
+            margin-bottom: 20px;
+            color: #000000;
+            letter-spacing: -1px;
+        }
+
+        .hero .subtitle {
+            font-size: 18px;
+            color: #666666;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        .hero-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #f5f5f5, #e5e5e5);
+            margin: 0 auto 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: #999999;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Featured Section */
+        .featured {
+            padding: 80px 0;
+            background-color: #ffffff;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #000000;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .featured-card {
+            background-color: #ffffff;
+            border: 1px solid #f0f0f0;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .featured-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #999999;
+        }
+
+        .card-content {
+            padding: 24px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #000000;
+        }
+
+        .card-description {
+            font-size: 14px;
+            color: #666666;
+            line-height: 1.5;
+        }
+
+        /* Navigation Cards */
+        .nav-cards {
+            padding: 60px 0;
+            background-color: #fafafa;
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .nav-card {
+            background-color: #ffffff;
+            border: 1px solid #f0f0f0;
+            border-radius: 8px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .nav-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            border-color: #e0e0e0;
+        }
+
+        .nav-card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+            color: #666666;
+        }
+
+        .nav-card-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #000000;
+        }
+
+        .nav-card-description {
+            font-size: 14px;
+            color: #666666;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #ffffff;
+            border-top: 1px solid #f0f0f0;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            color: #999999;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+                padding: 16px 0;
+            }
+
+            .nav-menu {
+                gap: 20px;
+            }
+
+            .hero {
+                padding: 60px 0 80px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero .subtitle {
+                font-size: 16px;
+            }
+
+            .featured {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 24px;
+                margin-bottom: 40px;
+            }
+
+            .featured-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .nav-cards {
+                padding: 40px 0;
+            }
+
+            .nav-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero * {
+            animation-delay: 0.2s;
+        }
+
+        .featured-card:nth-child(1) { animation-delay: 0.3s; }
+        .featured-card:nth-child(2) { animation-delay: 0.4s; }
+        .featured-card:nth-child(3) { animation-delay: 0.5s; }
+    </style>
 </head>
 <body>
-<h1> 내 생에 첫 홈페이지 </h1>
-<a href="about/">about</a>
-<a href="product/">product</a>
-<a href="contact/">contact</a>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">Portfolio</a>
+                <nav class="nav-menu">
+                    <a href="about/">소개</a>
+                    <a href="product/">작업물</a>
+                    <a href="contact/">연락처</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-image fade-in">
+                👋
+            </div>
+            <h1 class="fade-in">안녕하세요</h1>
+            <p class="subtitle fade-in">저의 포트폴리오에 오신 것을 환영합니다</p>
+        </div>
+    </section>
+
+    <section class="featured">
+        <div class="container">
+            <h2 class="section-title">주요 작업물</h2>
+            <div class="featured-grid">
+                <div class="featured-card fade-in">
+                    <div class="card-image">
+                        🎨
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">디자인 프로젝트</h3>
+                        <p class="card-description">창의적이고 혁신적인 디자인 솔루션을 제공합니다.</p>
+                    </div>
+                </div>
+                <div class="featured-card fade-in">
+                    <div class="card-image">
+                        💻
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">웹 개발</h3>
+                        <p class="card-description">사용자 친화적이고 반응형 웹사이트를 개발합니다.</p>
+                    </div>
+                </div>
+                <div class="featured-card fade-in">
+                    <div class="card-image">
+                        📱
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">모바일 앱</h3>
+                        <p class="card-description">직관적인 사용자 경험을 제공하는 모바일 앱을 제작합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="nav-cards">
+        <div class="container">
+            <div class="nav-grid">
+                <a href="about/" class="nav-card">
+                    <div class="nav-card-icon">
+                        👤
+                    </div>
+                    <h3 class="nav-card-title">소개</h3>
+                    <p class="nav-card-description">저에 대해 더 자세히 알아보세요</p>
+                </a>
+                <a href="product/" class="nav-card">
+                    <div class="nav-card-icon">
+                        📂
+                    </div>
+                    <h3 class="nav-card-title">작업물</h3>
+                    <p class="nav-card-description">다양한 프로젝트와 포트폴리오를 확인하세요</p>
+                </a>
+                <a href="contact/" class="nav-card">
+                    <div class="nav-card-icon">
+                        📧
+                    </div>
+                    <h3 class="nav-card-title">연락처</h3>
+                    <p class="nav-card-description">언제든지 연락주세요</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 개인 포트폴리오. 모든 권리 보유.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Fade in animation observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements that should fade in
+        document.querySelectorAll('.featured-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
